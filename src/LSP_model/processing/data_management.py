@@ -2,13 +2,15 @@ import pandas as pd
 import joblib
 from sklearn.pipeline import Pipeline
 
-from lsp_model.config.core import config, DATASET_DIR, TRAINED_MODEL_DIR
-from lsp_model import __version__ as _version
+from lsp_model.config.core import config, PACKAGE_ROOT, DATASET_DIR, TRAINED_MODEL_DIR
+
 
 import logging
 import typing as t
 
 _logger = logging.getLogger(__name__)
+with open(PACKAGE_ROOT / "VERSION") as version_file:
+    _version_ = version_file.read().strip()
 
 
 def load_dataset(*, file_name: str) -> pd.DataFrame:
@@ -39,7 +41,7 @@ def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
     """
 
     # Prepare versioned save file name
-    save_file_name = f"{config.app_config.pipeline_save_file}{_version}.pkl"
+    save_file_name = f"{config.app_config.pipeline_save_file}{_version_}.pkl"
     save_path = TRAINED_MODEL_DIR / save_file_name
 
     remove_old_pipelines(files_to_keep=[save_file_name])
