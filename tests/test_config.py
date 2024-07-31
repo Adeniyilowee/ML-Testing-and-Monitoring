@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from LSP_model.config.core import create_and_validate_config, fetch_config_from_yaml
+from lsp_model.config.core import create_and_validate_config, fetch_config_from_yaml
 
 import pytest
 from pydantic import ValidationError

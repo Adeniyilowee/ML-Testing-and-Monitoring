@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import accuracy_score, confusion_matrix, roc_auc_score, roc_curve
 
-from LSP_model import pipeline
-from LSP_model.processing.data_management import load_dataset, load_testdataset, save_pipeline
-from LSP_model.config.core import config
-from LSP_model import __version__ as _version
+from lsp_model import pipeline
+from lsp_model.processing.data_management import load_dataset, load_testdataset, save_pipeline
+from lsp_model.config.core import config
+from lsp_model import __version__ as _version
 
 import logging
 

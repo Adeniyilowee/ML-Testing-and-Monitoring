@@ -1,10 +1,10 @@
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 
-from LSP_model.processing import preprocessors as pp
+from lsp_model.processing import preprocessors as pp
 import numpy as np
-from LSP_model import model as md
-from LSP_model.config.core import config
+from lsp_model import model as md
+from lsp_model.config.core import config
 
 import logging
 

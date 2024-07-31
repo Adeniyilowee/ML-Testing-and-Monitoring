@@ -1,6 +1,6 @@
 import joblib
 from sklearn.pipeline import Pipeline
-from LSP_model.config.core import TRAINED_MODEL_DIR
+from lsp_model.config.core import TRAINED_MODEL_DIR
 import logging
 
 

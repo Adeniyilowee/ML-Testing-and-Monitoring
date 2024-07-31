@@ -2,13 +2,14 @@
 # ML-Testing-and-Monitoring
 This is a fullstack ML testing and monitoring repository for a Landslide prediction task
 
-
-<table>
-  <tr>
-    <td><img src="src/LSP_model/images/confusion_matrix.png" alt="Image 1" width="200"/></td>
-    <td><img src="src/LSP_model/images/roc.png" alt="Image 2" width="200"/></td>
-  </tr>
-</table>
+<div style="text-align: center;">
+  <table style="margin: auto;">
+    <tr>
+      <td><img src="src/LSP_model/images/confusion_matrix.png" alt="Image 1" width="300"/></td>
+      <td><img src="src/LSP_model/images/roc.png" alt="Image 2" width="300"/></td>
+    </tr>
+  </table>
+</div>
 
 ## Environment Setup Instructions
 

@@ -1,7 +1,7 @@
 import logging
-from LSP_model import __version__ as _version
-from LSP_model.config.core import config
-from LSP_model.processing import data_management
+from lsp_model import __version__ as _version
+from lsp_model.config.core import config
+from lsp_model.processing import data_management
 
 _logger = logging.getLogger(__name__)
 

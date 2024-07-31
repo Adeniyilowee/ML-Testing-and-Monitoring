@@ -2,8 +2,8 @@ import pandas as pd
 import joblib
 from sklearn.pipeline import Pipeline
 
-from LSP_model.config.core import config, DATASET_DIR, TRAINED_MODEL_DIR
-from LSP_model import __version__ as _version
+from lsp_model.config.core import config, DATASET_DIR, TRAINED_MODEL_DIR
+from lsp_model import __version__ as _version
 
 import logging
 import typing as t

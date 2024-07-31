@@ -1,5 +1,5 @@
 import pandas as pd
-from LSP_model.config.core import DATASET_DIR
+from lsp_model.config.core import DATASET_DIR
 
 from sklearn.base import BaseEstimator, TransformerMixin
 

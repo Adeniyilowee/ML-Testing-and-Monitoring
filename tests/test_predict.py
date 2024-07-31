@@ -1,5 +1,5 @@
 from sklearn.metrics import accuracy_score
-from LSP_model import predict
+from lsp_model import predict
 
 
 def test_predict(sample_input_data):
