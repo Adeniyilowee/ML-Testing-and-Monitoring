@@ -2,7 +2,7 @@ from pydantic import BaseModel, validator
 from strictyaml import load, YAML
 from pathlib import Path
 import typing as t
-import LSP_model
+import src.LSP_model
 
 # Project Directories
 PACKAGE_ROOT = Path(LSP_model.__file__).resolve().parent
