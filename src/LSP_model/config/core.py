@@ -2,10 +2,10 @@ from pydantic import BaseModel, validator
 from strictyaml import load, YAML
 from pathlib import Path
 import typing as t
-import src.LSP_model
+import LSP_model
 
 # Project Directories
-PACKAGE_ROOT = Path(src.LSP_model.__file__).resolve().parent
+PACKAGE_ROOT = Path(LSP_model.__file__).resolve().parent
 ROOT = PACKAGE_ROOT.parent
 CONFIG_FILE_PATH = PACKAGE_ROOT / "config.yml"
 TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"

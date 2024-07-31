@@ -1,5 +1,5 @@
-from src.LSP_model.config.core import config
-from src.LSP_model.processing import preprocessors as pp
+from LSP_model.config.core import config
+from LSP_model.processing import preprocessors as pp
 
 
 def test_drop_unnecessary_features_transformer(pipeline_inputs):

@@ -1,6 +1,6 @@
 import pytest
-from src.LSP_model.config.core import config
-from src.LSP_model.processing.data_management import load_dataset, load_testdataset
+from LSP_model.config.core import config
+from LSP_model.processing.data_management import load_dataset, load_testdataset
 
 
 @pytest.fixture(scope="session")
