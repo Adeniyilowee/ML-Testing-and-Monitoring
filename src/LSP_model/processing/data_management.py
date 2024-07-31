@@ -2,12 +2,11 @@ import pandas as pd
 import joblib
 from sklearn.pipeline import Pipeline
 
-from gradient_boosting_model.config.core import config, DATASET_DIR, TRAINED_MODEL_DIR
-from gradient_boosting_model import __version__ as _version
+from LSP_model.config.core import config, DATASET_DIR, TRAINED_MODEL_DIR
+from LSP_model import __version__ as _version
 
 import logging
 import typing as t
-
 
 _logger = logging.getLogger(__name__)
 
@@ -18,11 +17,16 @@ def load_dataset(*, file_name: str) -> pd.DataFrame:
     # rename variables beginning with numbers to avoid syntax errors later
     transformed = dataframe.rename(columns=config.model_config.variables_to_rename)
 
-    # reorder variables
-    sorted_columns = [column for column, position in sorted(config.model_config.variables_to_reorder.items(), key=lambda item: item[1])]
     # Reindex the DataFrame with the sorted columns
-    reordered = transformed[sorted_columns]
+    reordered = transformed[config.model_config.variables_to_reorder]
+
     return reordered
+
+
+def load_testdataset(*, file_name: str) -> pd.DataFrame:
+    dataframe = pd.read_csv(f"{DATASET_DIR}/{file_name}", decimal=',')
+
+    return dataframe
 
 
 def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
@@ -45,7 +49,7 @@ def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
 
 def load_pipeline(*, file_name: str) -> Pipeline:
     """Load a persisted pipeline."""
-
+    print(TRAINED_MODEL_DIR)
     file_path = TRAINED_MODEL_DIR / file_name
     trained_model = joblib.load(filename=file_path)
     return trained_model

@@ -1,13 +1,11 @@
-from pathlib import Path
-import typing as t
-
 from pydantic import BaseModel, validator
 from strictyaml import load, YAML
-
-import src
+from pathlib import Path
+import typing as t
+import LSP_model
 
 # Project Directories
-PACKAGE_ROOT = Path(src.__file__).resolve().parent
+PACKAGE_ROOT = Path(LSP_model.__file__).resolve().parent
 ROOT = PACKAGE_ROOT.parent
 CONFIG_FILE_PATH = PACKAGE_ROOT / "config.yml"
 TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
@@ -18,7 +16,6 @@ class AppConfig(BaseModel):
     """
     Application-level config.
     """
-
     package_name: str
     pipeline_name: str
     pipeline_save_file: str
@@ -32,29 +29,27 @@ class ModelConfig(BaseModel):
     training and feature engineering.
     """
     modelchoice: str
-    variables_to_rename: t.Dict
-    variables_to_reorder: t.Dict
+    variables_to_rename: t.Dict[str, str]
+    variables_to_reorder: t.Sequence[str]
     numerical_vars_1: t.Sequence[str]
     numerical_vars_2: t.Sequence[str]
     categorical_vars_1: t.Sequence[str]
     categorical_vars_2: t.Sequence[str]
-    astype_features: t.Dict
-    special_edit: t.Sequence[str]
+    astype_features: t.Dict[str, str]
+    special_edit: str
     negative_variables: t.Sequence[str]
     variables_to_drop: t.Sequence[str]
     target: str
     features: t.Sequence[str]
-    
-    
+
+    train_size: float
     test_size: float
     random_state: int
     n_estimators: int
-    
 
     # the order is necessary for validation
     allowed_loss_functions: t.Tuple[str, ...]
     loss: str
-
 
     @validator("loss")
     def allowed_loss_function(cls, value, values):
@@ -80,6 +75,7 @@ class ModelConfig(BaseModel):
 
 
 class Config(BaseModel):
+
     """Master config object."""
 
     app_config: AppConfig
@@ -93,7 +89,7 @@ def find_config_file() -> Path:
     raise Exception(f"Config not found at {CONFIG_FILE_PATH!r}")
 
 
-def fetch_config_from_yaml(cfg_path: Path = None) -> YAML:
+def fetch_config_from_yaml(cfg_path: t.Optional[Path] = None) -> YAML:
     """Parse YAML containing the package configuration."""
 
     if not cfg_path:
@@ -112,10 +108,8 @@ def create_and_validate_config(parsed_config: YAML = None) -> Config:
         parsed_config = fetch_config_from_yaml()
 
     # specify the data attribute from the strictyaml YAML type.
-    _config = Config(
-        app_config=AppConfig(**parsed_config.data),
-        model_config=ModelConfig(**parsed_config.data),
-    )
+    _config = Config(app_config=AppConfig(**parsed_config.data),
+                     model_config=ModelConfig(**parsed_config.data))
 
     return _config
 
