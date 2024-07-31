@@ -208,19 +208,20 @@ allowed_loss_functions:
   - huber
 """
 
-# this test if all our configs parameters are valid
+
 def test_fetch_config_structure(tmpdir):
 
     # We make use of the pytest built-in tmpdir fixture
     configs_dir = Path(tmpdir)
-    config_1 = configs_dir / "sample_config.yml" # create an empty yaml file
-    config_1.write_text(TEST_CONFIG_TEXT) # then write our string to the file
-    parsed_config = fetch_config_from_yaml(cfg_path=config_1) # we simply just fetch it afterwards
+    config_1 = configs_dir / "sample_config.yml"  # create an empty yaml file
+    config_1.write_text(TEST_CONFIG_TEXT)  # then write our string to the file
+    parsed_config = fetch_config_from_yaml(cfg_path=config_1)  # we simply just fetch it afterwards
 
     config = create_and_validate_config(parsed_config=parsed_config)
 
     assert config.model_config
     assert config.app_config
+
 
 def test_config_validation_raises_error_for_invalid_config(tmpdir):
 
@@ -235,6 +236,7 @@ def test_config_validation_raises_error_for_invalid_config(tmpdir):
         create_and_validate_config(parsed_config=parsed_config)
 
     assert "not in the allowed set" in str(excinfo.value)
+
 
 def test_missing_config_field_raises_validation_error(tmpdir):
 
