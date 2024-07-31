@@ -1,6 +1,6 @@
 import logging
 
-from LSP_model.config.core import config, PACKAGE_ROOT
+from src.LSP_model.config.core import config, PACKAGE_ROOT
 
 # It is strongly advised that you do not add any handlers other than
 # NullHandler to your library’s loggers. This is because the configuration
