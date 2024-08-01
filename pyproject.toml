@@ -4,8 +4,9 @@ build-backend = "setuptools.build_meta"
 
 #----
 [tool.pytest.ini_options]
-addopts = "--cov=LSP_model"
+addopts = "--cov=lsp_model"
 testpaths = ["tests"]
+pythonpath = "src"
 
 [tool.mypy]
 mypy_path = "src"
