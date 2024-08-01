@@ -1,7 +1,5 @@
-import pytest
 from src.lsp_model.config.core import config
 from src.lsp_model.processing.data_management import load_dataset, load_testdataset
-import lsp_model
 
 
 @pytest.fixture(scope="session")
