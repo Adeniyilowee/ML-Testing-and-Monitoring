@@ -1,5 +1,5 @@
 import logging
-from lsp_model.config.core import config, PACKAGE_ROOT
+from lsp_model.configg.core import config, PACKAGE_ROOT
 from lsp_model.processing import data_management
 
 _logger = logging.getLogger(__name__)

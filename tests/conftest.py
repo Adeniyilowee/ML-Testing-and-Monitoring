@@ -1,5 +1,5 @@
 import pytest
-from lsp_model.config.core import config
+from lsp_model.configg.core import config
 from lsp_model.processing.data_management import load_dataset, load_testdataset
 
 

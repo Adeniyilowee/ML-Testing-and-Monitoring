@@ -5,7 +5,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix, roc_auc_score, roc
 
 from lsp_model import pipeline
 from lsp_model.processing.data_management import load_dataset, load_testdataset, save_pipeline
-from lsp_model.config.core import config, PACKAGE_ROOT
+from lsp_model.configg.core import config, PACKAGE_ROOT
 
 import logging
 

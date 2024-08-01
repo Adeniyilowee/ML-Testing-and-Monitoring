@@ -2,7 +2,7 @@ import pandas as pd
 import joblib
 from sklearn.pipeline import Pipeline
 
-from lsp_model.config.core import config, PACKAGE_ROOT, DATASET_DIR, TRAINED_MODEL_DIR
+from lsp_model.configg.core import config, PACKAGE_ROOT, DATASET_DIR, TRAINED_MODEL_DIR
 
 
 import logging

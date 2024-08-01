@@ -1,4 +1,4 @@
-from lsp_model.config.core import config
+from lsp_model.configg.core import config
 from lsp_model.processing import preprocessors as pp
 
 

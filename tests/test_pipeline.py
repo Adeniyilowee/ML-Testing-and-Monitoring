@@ -1,5 +1,5 @@
 from lsp_model import pipeline
-from lsp_model.config.core import config
+from lsp_model.configg.core import config
 from sklearn.metrics import accuracy_score, roc_auc_score
 
 
