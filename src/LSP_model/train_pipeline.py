@@ -4,15 +4,13 @@ import seaborn as sns
 from sklearn.metrics import accuracy_score, confusion_matrix, roc_auc_score, roc_curve
 
 from lsp_model import pipeline
+from lsp_model import __version__ as _version
 from lsp_model.processing.data_management import load_dataset, load_testdataset, save_pipeline
-from lsp_model.configg.core import config, PACKAGE_ROOT
+from lsp_model.config.core import config
 
 import logging
 
 _logger = logging.getLogger(__name__)
-
-with open(PACKAGE_ROOT / "VERSION") as version_file:
-    _version_ = version_file.read().strip()
 
 
 def run_training() -> None:
@@ -22,7 +20,7 @@ def run_training() -> None:
 
     piper = pipeline.landscape_pipe.fit_transform(data)
 
-    _logger.warning(f"saving model version:{_version_}")
+    _logger.warning(f"saving model version:{_version}")
     save_pipeline(pipeline_to_persist=piper)
 
     test_inputs = load_testdataset(file_name=config.app_config.test_data_file)

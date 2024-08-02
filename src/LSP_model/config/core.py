@@ -74,7 +74,7 @@ class ModelConfig(BaseModel):
         )
 
 
-class Config_class(BaseModel):
+class Config(BaseModel):
 
     """Master config object."""
 
@@ -102,14 +102,14 @@ def fetch_config_from_yaml(cfg_path: t.Optional[Path] = None) -> YAML:
     raise OSError(f"Did not find config file at path: {cfg_path}")
 
 
-def create_and_validate_config(parsed_config: YAML = None) -> Config_class:
+def create_and_validate_config(parsed_config: YAML = None) -> Config:
     """Run validation on config values."""
     if parsed_config is None:
         parsed_config = fetch_config_from_yaml()
 
     # specify the data attribute from the strictyaml YAML type.
-    _config = Config_class(app_config=AppConfig(**parsed_config.data),
-                           model_config=ModelConfig(**parsed_config.data))
+    _config = Config(app_config=AppConfig(**parsed_config.data),
+                     model_config=ModelConfig(**parsed_config.data))
 
     return _config
 

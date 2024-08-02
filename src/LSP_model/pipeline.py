@@ -4,7 +4,7 @@ from sklearn.pipeline import Pipeline
 from lsp_model.processing import preprocessors as pp
 import numpy as np
 from lsp_model import model as md
-from lsp_model.configg.core import config
+from lsp_model.config.core import config
 
 import logging
 
