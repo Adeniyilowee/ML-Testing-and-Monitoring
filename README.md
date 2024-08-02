@@ -1,5 +1,5 @@
 ![Landslide Prediction Model Tests](https://github.com/Adeniyilowee/ML-Testing-and-Monitoring/actions/workflows/test.yml/badge.svg)
-# ML-Testing-and-Monitoring
+# Landslide Prediction and Monitoring
 This is a fullstack ML testing and monitoring repository for a Landslide prediction task
 
 <div style="text-align: center;">

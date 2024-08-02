@@ -206,5 +206,5 @@ class Train_Test_Split(BaseEstimator, TransformerMixin):
         assert self.target in test_df[['LANDSLIDE']].columns.to_list()
 
         data_dir = DATASET_DIR / 'test1.csv'
-        test_df.to_csv(data_dir)
+        test_df.to_csv(data_dir, index=False)
         return train_df
