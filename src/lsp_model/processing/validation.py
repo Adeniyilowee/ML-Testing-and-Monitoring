@@ -3,7 +3,7 @@ import pandas as pd
 from marshmallow import fields, Schema, ValidationError
 
 
-class HouseDataInputSchema(Schema):
+class LandslideSchema(Schema):
     STREAM_DIST = fields.Float()
     BASE_AREA = fields.Float()
     BASIN = fields.Float()
@@ -42,7 +42,7 @@ def validate_inputs(*, input_data: pd.DataFrame):
     validated_data = drop_na_inputs(input_data=input_data)
 
     # set many=True to allow passing in a list
-    schema = HouseDataInputSchema(many=True)
+    schema = LandslideSchema(many=True)
     errors = None
 
     try:
